@@ -1,0 +1,74 @@
+[
+  {
+    "id":"prod-1",
+    "titulo": "Chocolate Cherry Cake",
+    "precio": "$12.000",
+    "imagen": "../imagenes/choco.png",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["Chocolate", "Cerezas", "Clásico"]
+  },
+  {
+    "id":"prod-2",
+    "titulo": "Mixed Berry Cheesecake",
+    "precio": "$9.000",
+    "imagen": "../imagenes/raspberryy.png",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["Frutos Rojos", "Fresco"]
+  },
+  {
+    "id":"prod-3",
+    "titulo": "Raspberry Swirl",
+    "precio": "$11.000",
+    "imagen": "../imagenes/rasp.png",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["Frambuesa", "Mármol"]
+  },
+  {
+    "id":"prod-4",
+    "titulo": "Postre Maracuyá",
+    "precio": "$8.000",
+    "imagen": "../imagenes/maracuya.png",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["Maracuyá", "Tropical"]
+  },
+  {
+     "id": "prod-5",
+    "titulo": "Raspberry Cheesecake",
+    "precio": "$13.000",
+    "imagen": "../imagenes/raspberryy.png",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["Frambuesa", "Premium"]
+  },
+  {
+    "id": "prod-6",
+    "titulo": "Lemon Blueberry Cake",
+    "precio": "$10.000",
+    "imagen": "../imagenes/lemon.png",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["Limón", "Arándanos", "Fresco"]
+  },
+  {
+     "id": "prod-7",
+    "titulo": "Classic Tiramisu",
+    "precio": "$14.000",
+    "imagen": "../imagenes/tiramisu.png",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["Café", "Italiano", "Clásico"]
+  },
+  {
+    "id": "prod-8",
+    "titulo": "Mango Cheesecake",
+    "precio": "$11.000",
+    "imagen": "../imagenes/mango.png",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["Mango", "Tropical", "Cremoso"]
+  },
+  {
+    "id": "prod-9",
+    "titulo": "fresa slim",
+    "precio": "$11.000",
+    "imagen": "../imagenes/fresa.PNG",
+    "delivery": "Free Delivery until 20/06/2026",
+    "tags": ["fresa", "Tropical", "Cremoso"]
+  }
+]
