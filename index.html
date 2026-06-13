@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMORIS & DESSERT</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/categorias.css">
+</head>
+<body>
+    <header class="header">
+        <div class="menu container">
+            <div class="logo-container">
+                <a href="#home">
+                    <img src="../imagenes/logo.png" alt="Logo AMORIS" onerror="this.style.display='none'">
+                </a>
+                <span class="logo-text">AMORIS & DESSERT</span>
+            </div>
+
+            <input type="checkbox" id="menu">
+            <label for="menu" aria-label="Abrir menú">
+                <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </label>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#dashboard">Productos</a></li>
+                </ul>
+            </nav>
+
+            <div class="cart-wrap">
+                <button id="open-cart" class="cart-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span id="card-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <aside id="cart-drawer" class="cart-drawer">
+        <div class="cart-drawer-header">
+            <div>
+                <h2>Tu Carrito</h2>
+                <p class="cart-subtitle">Revisa tus postres y elige tu método de pago</p>
+            </div>
+            <button id="close-cart" class="cart-close">×</button>
+        </div>
+
+        <div id="carrito" class="cart-content">
+            <table id="lista-carrito">
+                <tbody></tbody>
+            </table>
+            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+            <a href="#" id="procesar-compra" class="btn-2 btn-checkout">Comprar 🛍️</a>
+            
+            <div id="checkout-panel" style="display: none; margin-top: 20px;">
+                <h3 class="checkout-title">Finalizar compra</h3>
+                <div class="checkout-summary">Total: <span id="checkout-total">$0</span></div>
+                
+                <form id="checkout-form" class="checkout-form">
+                    <div class="grupo-formulario">
+                        <label for="nombre-titular">Nombre del Titular</label>
+                        <input type="text" id="nombre-titular" placeholder="Ej. Daniel Pinto">
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="metodo-seleccionado">Método de Pago</label>
+                        <select id="metodo-seleccionado">
+                            <option value="tarjeta">Tarjeta de Crédito / Débito 💳</option>
+                            <option value="nequi">Nequi 📱</option>
+                            <option value="daviplata">Daviplata 📱</option>
+                        </select>
+                    </div>
+
+                    <div id="campos-tarjeta">
+                        <div class="grupo-formulario">
+                            <label for="numero-tarjeta">Número de Tarjeta</label>
+                            <input type="text" id="numero-tarjeta" placeholder="0000 0000 0000 0000" maxlength="16">
+                        </div>
+                        <div class="fila-doble">
+                            <div class="grupo-formulario">
+                                <label for="fecha-exp">Fecha Exp.</label>
+                                <input type="text" id="fecha-exp" placeholder="MM/AA" maxlength="5">
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="codigo-cvv">CVV</label>
+                                <input type="password" id="codigo-cvv" placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="campos-nequi" style="display: none;">
+                        <div class="grupo-formulario">
+                            <label for="numero-nequi">Número de Celular Nequi</label>
+                            <input type="text" id="numero-nequi" placeholder="Ej. 3001234567" maxlength="10">
+                        </div>
+                        <div class="grupo-formulario">
+                            <label for="pin-nequi">PIN Nequi</label>
+                            <input type="password" id="pin-nequi" placeholder="4 dígitos" maxlength="4">
+                        </div>
+                    </div>
+
+                    <div id="campos-daviplata" style="display: none;">
+                        <div class="grupo-formulario">
+                            <label for="numero-daviplata">Número de Celular Daviplata</label>
+                            <input type="text" id="numero-daviplata" placeholder="Ej. 3001234567" maxlength="10">
+                        </div>
+                        <div class="grupo-formulario">
+                            <label for="pin-daviplata">PIN Daviplata</label>
+                            <input type="password" id="pin-daviplata" placeholder="4 dígitos" maxlength="4">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-1 btn-pagar">Confirmar Pago 🚀</button>
+                </form>
+            </div>
+        </div>
+    </aside>
+
+
+    <main>
+    
+        <section id="home" class="view active">
+            <div class="carrusel">
+                <div class="carrusel-grande">
+                    <div class="carrusel-item active"><img src="../imagenes/CARRUSEL1.jpeg" alt="Primera diapositiva"></div>
+                    <div class="carrusel-item"><img src="../imagenes/CARRUSEL2.jpeg" alt="Segunda diapositiva"></div>
+                    <div class="carrusel-item"><img src="../imagenes/CARRUSEL3.jpeg" alt="Tercera diapositiva"></div>
+                </div>
+            </div>
+
+            <div class="arribapremiun">
+                <h2 class="title">Nuestros Productos</h2>
+                <p class="subtitle">Descubre la variedad de nuevos sabores premiun que tenemos para ti</p>
+            </div>
+
+            <section class="oferts container">
+                <div class="ofert-1">
+                    <img src="../imagenes/postre7.png" alt="Oferta de postre 1">
+                    <h3>‼PRODUCTO PREMIUN‼</h3>
+                </div>
+                <div class="ofert-1">
+                    <img src="../imagenes/postre8.png" alt="Oferta de postre 2">
+                    <h3>‼PRODUCTO PREMIUN‼</h3>
+                </div>
+                <div class="ofert-1">
+                    <img src="../imagenes/postre5png.png" alt="Oferta de postre 3">
+                    <h3>‼PRODUCTO PREMIUN‼</h3>
+                </div>
+                <div class="ofert-1">
+                    <img src="../imagenes/postre6.png" alt="Oferta de postre 4">
+                    <h3>‼PRODUCTO PREMIUN‼</h3>
+                </div>
+            </section>
+
+            <main class="products container" id="lista-1">
+                <div class="products-content">
+                    <div class="product">
+                        <img src="../imagenes/postre3.png" alt="Postre destacado 1">
+                        <div class="product-txt">
+                            <h3>PRODUCTO SIN AZUCAR</h3>
+                            <p class="precio">$20.000</p>
+                            <a href="#" class="agregar-carrito btn-2" data-id="1">Agregar</a>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <img src="../imagenes/postre2.webp" alt="Postre destacado 2">
+                        <div class="product-txt">
+                            <h3>PRODUCTO SIN AZUCAR</h3>
+                            <p class="precio">$25.000</p>
+                            <a href="#" class="agregar-carrito btn-2" data-id="2">Agregar</a>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <img src="../imagenes/mora.png" alt="Postre destacado 3">
+                        <div class="product-txt">
+                            <h3>PRODUCTO SIN AZUCAR</h3>
+                            <p class="precio">$18.000</p>
+                            <a href="#" class="agregar-carrito btn-2" data-id="3">Agregar</a>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <img src="../imagenes/postre2.png" alt="Postre destacado 4">
+                        <div class="product-txt">
+                            <h3>PRODUCTO SIN AZUCAR</h3>
+                            <p class="precio">$23.000</p>
+                            <a href="#" class="agregar-carrito btn-2" data-id="4">Agregar</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <section class="service">
+                <div class="service-1">
+                    <img src="../imagenes/abajo1.jpeg" class="imagen-banner">
+                </div>
+            </section>
+
+            <section class="information container">
+                <div class="information-content">
+                    <div class="information-1">
+                        <img src="../imagenes/i1 (1).svg" alt="Icono información 1">
+                        <h3>Conocenos</h3>
+                        <p>Nosotros</p>
+                    </div>
+                    <div class="information-1">
+                        <img src="../imagenes/i2.svg" alt="Icono información">
+                        <h3>Personalizados</h3>
+                        <p>Productos</p>
+                    </div>
+                    <div class="information-2">
+                        <img src="../imagenes/i3.svg" alt="Icono información 3">
+                        <h3>Domicilios</h3>
+                        <p>Envios a toda Colombia</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+   
+        <section id="dashboard" class="view">
+            <div class="dashboard-header">
+              <h2 class="dashboard-title">Nuestra Carta de Postres</h2>
+              <p class="dashboard-subtitle">Explora nuestra selección premium</p>
+            </div>
+     
+    <div class="buscador-container">
+        <select id="select-orden">
+            <option value="default">Ordenar por ↕️</option>
+            <option value="precio-asc">Precio: Menor a Mayor 💵</option>
+        </select>
+            <input type="text" id="input-busqueda" placeholder="Buscar tu postre favorito... 🔍">
+    </div>
+    
+    <div class="menu-grid" id="contenedor-productos"></div>
+     </section>
+    </main>
+
+   
+    <footer class="footer">
+        <section class="contact container">
+            <form>
+                <input type="email" placeholder="correo" aria-label="Correo electrónico">
+                <img src="../imagenes/correo.png" alt="Icono de correo" class="email-icon">
+                <input type="submit" class="btn-3" value="Enviar">
+            </form>
+        </section>
+
+        <div class="footer-content container">
+            <div class="link">
+                <h3>REPOSTERIA ARTEZANAL</h3>
+                <ul>
+                    <li><a href="#"><img src="../imagenes/insta.png" alt="Instagram"></a></li>
+                    <li><a href="#">@amoris_reposteria</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <h3>CEO</h3>
+                <ul>
+                    <li><a href="#">XIMENA OBANDO</a></li>
+                    <li><a href="#">JONATHAN ROMERO</a></li>
+                    <li><a href="#">CARLOS PINTO</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <h3>UBICACION</h3>
+                <ul>
+                    <li><a href="#"><img src="../imagenes/ubi.png" alt="ubicacion"></a></li>
+                    <li><a href="#">colombia: villagarzon/putumayo</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+     <script src="../js/carrito.js"></script>
+    <script src="../js/categorias.js"></script>
+    <script type="module" src="../js/app.js"></script>
+</body>
+</html>
